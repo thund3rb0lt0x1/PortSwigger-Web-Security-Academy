@@ -1,0 +1,7 @@
+Lab #6 - Blind SSRF with out-of-band detection
+
+Vulnerable parameter - Referer header when a product page is loaded
+
+Goal - use this functionality to cause an HTTP request to the public Burp Collaborator server. 
+
+wuu6sq0qfiagg8epjozcj9ipngt6hv.oastify.com

